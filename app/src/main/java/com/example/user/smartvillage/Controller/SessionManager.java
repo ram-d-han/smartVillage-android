@@ -1,5 +1,6 @@
 package com.example.user.smartvillage.Controller;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,11 +20,12 @@ public class SessionManager {
     private static final String PREF_NAME = "UserPref";
     private static final String IS_LOGIN = "IsLoggedIn";
     public static final String KEY_ID = "id";
-    public static final String KEY_USERNAME = "usernam";
+    public static final String KEY_USERNAME = "username";
     public static final String KEY_ROLE = "role";
     public static final String KEY_TOKEN = "token";
 
     // Constructor
+    @SuppressLint("CommitPrefEdits")
     public SessionManager(Context context){
         this._context = context;
         pref = _context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -53,7 +55,7 @@ public class SessionManager {
         // Check login status
         if(!this.isLoggedIn()){
 //            // user is not logged in redirect him to Login Activity
-//            Intent i = new Intent(_context, LoginActivity.class);
+//            Intent i = new Intent(_context, SignInActivity.class);
 //            // Closing all the Activities
 //            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //            // Add new Flag to start new Activity

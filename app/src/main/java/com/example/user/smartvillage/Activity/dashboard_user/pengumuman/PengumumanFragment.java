@@ -2,7 +2,7 @@ package com.example.user.smartvillage.Activity.dashboard_user.pengumuman;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +22,7 @@ import retrofit2.Response;
 public class PengumumanFragment extends Fragment {
 
     TextView tvDataPengumuman;
+    TextView tvDataPengumuman2;
     DefaultModel pengumuman;
 
     public PengumumanFragment() {
@@ -39,9 +40,8 @@ public class PengumumanFragment extends Fragment {
         ApiService.service_get.getPengumuman("Bearer bmFuZGE=").enqueue(new Callback<DefaultModel>() {
             @Override
             public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
-                pengumuman = response.body();
-                tvDataPengumuman.setText(pengumuman.getMessage());
-
+                    pengumuman = response.body();
+                    tvDataPengumuman.setText(pengumuman.getMessage());
             }
 
             @Override

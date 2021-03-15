@@ -25,9 +25,7 @@ public class User {
         return message;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
+    public boolean isStatus() { return status; }
 
     public int getId() {
         return id;

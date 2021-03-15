@@ -7,11 +7,9 @@ package com.example.user.smartvillage.Model;
 public class DataPembangunanModel {
     private int id, anggaran, users_id;
     private float prosentase;
-    private String nama_pembangunan, foto, tgl_mulai, tgl_selesai, longitude, latitude, keterangan, sumber_dana_pembanguan_id, kategori_pembangunan_id, status_pembangunan_id, mitra_id, created_at, updated_at;
+    private String nama_pembangunan, foto, tgl_mulai, tgl_selesai, longitude, latitude, keterangan, sumber_dana_pembangunan_id, kategori_pembangunan_id, status_pembangunan_id, mitra_id, created_at, updated_at;
 
-    public int getId() {
-        return id;
-    }
+    public int getId() { return id; }
 
     public int getAnggaran() {
         return anggaran;
@@ -53,9 +51,7 @@ public class DataPembangunanModel {
         return keterangan;
     }
 
-    public String getSumber_dana_pembanguan_id() {
-        return sumber_dana_pembanguan_id;
-    }
+    public String getSumber_dana_pembangunan_id() { return sumber_dana_pembangunan_id; }
 
     public String getKategori_pembangunan_id() {
         return kategori_pembangunan_id;

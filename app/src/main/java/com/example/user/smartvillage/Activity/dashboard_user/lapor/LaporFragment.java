@@ -2,7 +2,9 @@ package com.example.user.smartvillage.Activity.dashboard_user.lapor;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.user.smartvillage.Adapter.DataPembangunanAdapter;
 import com.example.user.smartvillage.Model.DataPembangunanModel;
 import com.example.user.smartvillage.Model.DefaultModel;
 import com.example.user.smartvillage.Model.PembangunanModel;
@@ -35,7 +35,7 @@ public class LaporFragment extends Fragment {
 
     private Spinner spNamen2;
     ArrayList<String> dataPembangunan;
-    private String[] germanFeminine = {
+    private final String[] germanFeminine = {
             "Karin",
             "Ingrid",
             "Helga",
@@ -55,21 +55,20 @@ public class LaporFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_lapor,container, false);
 
 
-        spNamen2 = (Spinner) view.findViewById(R.id.spList);
+        spNamen2 = view.findViewById(R.id.spList);
         loadDataPembangunan();
 
         // mengeset listener untuk mengetahui saat item dipilih
-        spNamen2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            spNamen2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 // memunculkan toast + value Spinner yang dipilih (diambil dari adapter)
-
             }
 
             @Override
@@ -79,23 +78,32 @@ public class LaporFragment extends Fragment {
         });
 
 
-        Button bt_lapor = (Button) view.findViewById(R.id.button_lapor);
-        final EditText et_deskripsi = (EditText) view.findViewById(R.id.deskripsi_lapor);
+        Button bt_lapor = view.findViewById(R.id.button_lapor);
+        final EditText et_deskripsi = view.findViewById(R.id.deskripsi_lapor);
         bt_lapor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String set_deskripsi = et_deskripsi.getText().toString();
-                ApiService.service_post.postLapor("Bearer bmFuZGE=",set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
-                    @Override
-                    public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
-                        Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                    @Override
-                    public void onFailure(Call<DefaultModel> call, Throwable t) {
-                        Log.d("lapor", "onFailure: " + t.getMessage());
-                        t.printStackTrace();
-                    }
-                });
+                final String set_deskripsi = et_deskripsi.getText().toString();
+                if (set_deskripsi.isEmpty()) {
+                    Toast.makeText(getActivity(), "Data Kosong", Toast.LENGTH_SHORT).show();
+                } else {
+                    ApiService.service_post.postLapor(
+                            "Bearer bmFuZGE=",
+                            set_deskripsi, "4"
+                    ).enqueue(new Callback<DefaultModel>() {
+                        @Override
+                        public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
+                            System.out.println(response);
+                            Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                        @Override
+                        public void onFailure(Call<DefaultModel> call, Throwable t) {
+                            Toast.makeText(getActivity(), "Error!!!", Toast.LENGTH_SHORT).show();
+                            Log.d("lapor", "onFailure: " + t.getMessage());
+                            t.printStackTrace();
+                        }
+                    });
+                }
             }
         });
 
@@ -107,7 +115,7 @@ public class LaporFragment extends Fragment {
         ApiService.service_get.getPembangunandd("Bearer bmFuZGE=").enqueue(new Callback<PembangunanModel>() {
             @Override
             public void onResponse(Call<PembangunanModel> call, Response<PembangunanModel> response) {
-//                dropdownpembangunan = response.body();
+                dropdownpembangunan = response.body();
                 ArrayList<DataPembangunanModel> dataPembangunanModelArrayList = response.body().getData();
                 dataPembangunan = new ArrayList<String>();
                 String[] stringArray = new String[dataPembangunanModelArrayList.size()];

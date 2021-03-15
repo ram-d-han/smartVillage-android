@@ -3,7 +3,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <!-- Register-->
-    <string name="nik">NIK</string>
+    <string name="email">EMAIL</string>
     <string name="password">Password</string>
     <string name="signin">LOGIN</string>
     <string name="show_pwd">Show Password</string>
@@ -61,5 +61,7 @@
     <string name="about">SmartVillage adalah aplikasi yang memudahkan anda untuk melihat proses pembangunan yang sedang tejadi di desa anda,
 
         aplikasi ini juga memungkinkan anda untuk memberikan request mengenai pembangunan yang perlu dilakukan di desa anda. </string>
+    <string name="username1">Username</string>
+    <string name="sign_up">Go To Sign Up</string>
 </resources>
 

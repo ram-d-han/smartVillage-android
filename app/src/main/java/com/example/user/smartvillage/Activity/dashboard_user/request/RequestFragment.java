@@ -2,7 +2,7 @@ package com.example.user.smartvillage.Activity.dashboard_user.request;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +14,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.user.smartvillage.Model.DataPembangunanModel;
 import com.example.user.smartvillage.Model.DefaultModel;
 import com.example.user.smartvillage.Model.Kategori;
 import com.example.user.smartvillage.Model.KategoriPembangunanModel;
-import com.example.user.smartvillage.Model.PembangunanModel;
 import com.example.user.smartvillage.R;
 import com.example.user.smartvillage.service.ApiService;
 
@@ -61,6 +59,7 @@ public class RequestFragment extends Fragment {
                      ApiService.service_post.postRequest("Bearer bmFuZGE=", set_judul, set_deskripsi, "1").enqueue(new Callback<DefaultModel>() {
                      @Override
                      public void onResponse(Call<DefaultModel> call, Response<DefaultModel> response) {
+                         System.out.println(response);
                         Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
                      }
                      @Override
@@ -91,7 +90,7 @@ public class RequestFragment extends Fragment {
         ApiService.service_get.getkategori("Bearer bmFuZGE=").enqueue(new Callback<KategoriPembangunanModel>() {
             @Override
             public void onResponse(Call<KategoriPembangunanModel> call, Response<KategoriPembangunanModel> response) {
-//                dropdownpembangunan = response.body();
+                KategoriPembangunanModel dropdownpembangunan = response.body();
                 ArrayList<Kategori> dataPembangunanModelArrayList = response.body().getData();
                 dataPembangunan = new ArrayList<String>();
                 String[] stringArray = new String[dataPembangunanModelArrayList.size()];
@@ -99,7 +98,7 @@ public class RequestFragment extends Fragment {
                 int i = 0;
                 for (Kategori dt : dataPembangunanModelArrayList)
                 {
-//                    Log.v("asd", ""+dt.getId());
+                    Log.v("asd", ""+dt.getId());
                     stringArray[i] = dt.getNama();
                     i++;
                 }

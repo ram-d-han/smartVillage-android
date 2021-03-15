@@ -2,9 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/templatebg"
     android:orientation="vertical"
-    android:background="@drawable/template"
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.pengumuman.PengumumanFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:paddingEnd="20dp">
+
+        <TextView
+            android:id="@+id/judul_pengumuman"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15sp"
+            android:paddingTop="10dp"
+            android:inputType="text"
+            android:text="Pengumuman Pembangunan"
+            android:textColor="#000"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            tools:ignore="TextViewEdits" />
+    </LinearLayout>
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,12 +36,11 @@
         <TextView
             android:id="@+id/tv_pengumuman"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="18sp"
             android:background="#BFFFFFFF"
             android:textColor="@color/black"
-            android:layout_margin="18dp"
-            >
-        </TextView>
+            android:translationY="50dp" />
 
     </ScrollView>
 </FrameLayout>

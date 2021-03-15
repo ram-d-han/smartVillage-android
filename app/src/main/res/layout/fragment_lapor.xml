@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/template"
+    android:background="@drawable/templatebg"
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.lapor.LaporFragment">
 
 <ScrollView
@@ -65,7 +65,7 @@
             android:inputType="text"
             android:minHeight="225dp" />
 
-        <android.support.design.widget.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColorHint="#000">
@@ -81,7 +81,7 @@
                 android:layout_margin="18dp"
                 />
 
-        </android.support.design.widget.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/button_lapor"
@@ -91,9 +91,9 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginRight="18dp"
-                android:background="@drawable/bgbutton"
+                android:background="@color/lightGreen"
                 android:text="SUBMIT LAPOR"
-                android:textColor="@color/gold" />
+                android:textColor="@color/white_greyish" />
 
     </LinearLayout>
 

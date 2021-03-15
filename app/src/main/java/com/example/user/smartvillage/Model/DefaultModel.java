@@ -8,6 +8,9 @@ public class DefaultModel {
     private boolean status;
     private String message;
 
+    public DefaultModel() {
+    }
+
     public boolean isStatus() {
         return status;
     }

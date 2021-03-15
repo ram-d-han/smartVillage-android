@@ -2,9 +2,8 @@ package com.example.user.smartvillage.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,11 +14,6 @@ import com.example.user.smartvillage.Controller.SessionManager;
 import com.example.user.smartvillage.Model.User;
 import com.example.user.smartvillage.R;
 import com.example.user.smartvillage.service.ApiService;
-
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -69,26 +63,32 @@ public class SignInActivity extends AppCompatActivity {
     }
     private void doSignIn(final String username, final String password) {
         pDialog = new ProgressDialog(SignInActivity.this, R.style.Theme_AppCompat_DayNight_Dialog);
-        pDialog.setMessage("Authenticating..");
+        pDialog.setMessage("Authenticating....");
         pDialog.show();
 
-        ApiService.service_post.postSignIn(susername, spassword).enqueue(new Callback<User>() {
+        ApiService.service_post.postSignIn(username, password).enqueue(new Callback<User> () {
             @Override
             public void onResponse(Call<User> call, retrofit2.Response<User> response) {
-                if(response.body().isStatus()){
-                    pDialog.dismiss();
-                    Intent dashboard = new Intent(SignInActivity.this, MainActivity.class);
-                    startActivity(dashboard);
-                    finish();
-                }else{
-                    Toast.makeText(SignInActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                    pDialog.dismiss();
+                System.out.println(username+"  " + response);
+                System.out.println(response.body().isStatus());
+                assert response.body() != null;
+                if (response.body().isStatus()){
+                        System.out.println("response success");
+                        pDialog.dismiss();
+                        Intent dashboard = new Intent(SignInActivity.this, MainActivity.class);
+                        startActivity(dashboard);
+                        finish();
+                    }else{
+                        Toast.makeText(SignInActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                        pDialog.dismiss();
+                    }
                 }
-            }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-
+                System.out.println("response failed");
+                pDialog.dismiss();
+                Toast.makeText(SignInActivity.this, "Username atau password tidak sesuai!", Toast.LENGTH_SHORT).show();
             }
         });
     }

@@ -4,38 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.smartvillage.Activity.SignUpActivity"
-    android:background="@drawable/templatebg">
+    android:background="@drawable/template"
+    android:translationY="20dp"
+    tools:context="com.example.user.smartvillage.Activity.SignUpActivity">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/layout_NIK_signup"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_EMAIL_signup"
         android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:textColorHint="#000"
-        >
+        android:translationY="30dp">
+
         <EditText
-            android:id="@+id/Signup_NIK"
+            android:id="@+id/Signup_EMAIL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="NIK"
-            android:inputType="number"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
 
-            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_username_signup"
         android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/layout_EMAIL_signup"
+        android:layout_marginLeft="30dp"
         android:layout_marginTop="0dp"
+        android:layout_marginRight="30dp"
         android:textColorHint="#000"
-        android:layout_below="@id/layout_NIK_signup"
-        >
+        android:translationY="30dp">
+
         <EditText
             android:id="@+id/Signup_username"
             android:layout_width="match_parent"
@@ -45,17 +47,19 @@
 
             />
 
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_password_signup"
         android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColorHint="#000"
         android:layout_below="@id/layout_username_signup"
-        >
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:textColorHint="#000"
+        android:translationY="30dp">
+
         <EditText
             android:id="@+id/Signup_password"
             android:layout_width="match_parent"
@@ -65,49 +69,49 @@
 
             />
 
-    </android.support.design.widget.TextInputLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_Konfirmasi_password_signup"
         android:layout_width="fill_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
-        android:textColorHint="#000"
         android:layout_below="@id/layout_password_signup"
-        >
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="30dp"
+        android:textColorHint="#000"
+        android:translationY="30dp">
+
         <EditText
             android:id="@+id/Signup_Konfimasi_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Confirm password"
-            android:inputType="textPassword"
-
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button_signup"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_Konfirmasi_password_signup"
-        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/lightGreen"
         android:text="Sign Up"
         android:textColor="@color/white"
-        android:background="@drawable/bgbutton"
-        />
+        android:translationY="50dp" />
+
     <Button
         android:id="@+id/Button_link_signin"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/button_signup"
-        android:text="Already have an account?Sign in here"
         android:layout_centerHorizontal="true"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryDark"
-        android:background="@null"
-        />
+        android:layout_marginTop="10dp"
+        android:background="@color/lightGreen"
+        android:text="Go To Sign In"
+        android:textColor="@color/white"
+        android:translationY="50dp" />
 
 </RelativeLayout>

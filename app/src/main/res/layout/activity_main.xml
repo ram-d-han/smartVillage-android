@@ -7,11 +7,11 @@
     tools:context="com.example.user.smartvillage.Activity.dashboard_user.MainActivity"
     android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/biruIT">
+        android:background="@color/darkGreen">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,76 +35,82 @@
             android:src="@drawable/ic_more_options" />
 
     </RelativeLayout>
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbarmenu"
-        android:layout_height="wrap_content"
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:background="@color/biruIT">
+        android:layout_height="519dp" />
 
-        <android.support.design.widget.TabLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarmenu"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/darkGreen">
+
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="match_parent"
             android:accessibilityLiveRegion="none"
 
             android:clickable="true"
-            app:tabBackground="@color/biruIT"
-            app:tabIndicatorHeight="7dp"
-            app:tabIndicatorColor="@color/gold"
+            app:tabBackground="@color/darkGreen"
+            app:tabIndicatorColor="@color/grey"
+            app:tabIndicatorGravity="top"
+            app:tabIndicatorHeight="6dp"
             app:tabSelectedTextColor="@color/white"
             app:tabTextColor="#fff">
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:icon="@drawable/ic_list"
                 android:text=""
-                android:id="@+id/list"
                 android:textAlignment="center" />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/request"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:icon="@drawable/ic_request"
                 android:text=""
-                android:id="@+id/request"
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/lapor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:icon="@drawable/ic_lapor"
                 android:text=""
-                android:id="@+id/lapor"
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/pengumuman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:icon="@drawable/ic_pengumuman"
                 android:text=""
-                android:id="@+id/pengumuman"
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
 
-            <android.support.design.widget.TabItem
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:icon="@drawable/ic_profile"
                 android:text=""
-                android:id="@+id/profile"
-                android:textAlignment="center"/>
+                android:textAlignment="center" />
 
-        </android.support.design.widget.TabLayout>
+        </com.google.android.material.tabs.TabLayout>
 
-    </android.support.design.widget.AppBarLayout>
-
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    </com.google.android.material.appbar.AppBarLayout>
 
 
 </LinearLayout>
